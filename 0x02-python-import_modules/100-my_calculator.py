@@ -16,9 +16,9 @@ if __name__ == "__main__":
     if(op in ["+", "-", "*", "/"]):
         if(op == "+"):
             print("{:d} + {:d} = {:d}".format(a, b, add(a, b)))
-        else if(op == "-"):
+        elif(op == "-"):
             print("{:d} - {:d} = {:d}".format(a, b, sub(a, b)))
-        else if(op == "*"):
+        elif(op == "*"):
             print("{:d} * {:d} = {:d}".format(a, b, mul(a, b)))
         else:
             print("{:d} / {:d} = {:d}".format(a, b, div(a, b)))
