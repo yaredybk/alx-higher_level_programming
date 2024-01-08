@@ -2,7 +2,7 @@
 from sys import argv
 
 if __name__ == "__main__":
-    if(len(argv) == 1):
+    if (len(argv) == 1):
         print("{:d}".format(0))
     else:
         summ = 0

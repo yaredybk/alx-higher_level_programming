@@ -3,10 +3,10 @@
 if __name__ == "__main__":
     from sys import argv
     length = len(argv)
-    if(length == 1):
+    if (length == 1):
         print("{:d} arguments.".format(length - 1))
     else:
-        if(length == 2):
+        if (length == 2):
             print("{:d} argument:".format(length - 1))
         else:
             print("{:d} arguments:".format(length - 1))
