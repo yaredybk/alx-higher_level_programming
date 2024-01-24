@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
-    let newm = []
-    for ele in matrix:
-        tmp = []
-        for ele2 in ele:
-            tmp.append(ele2 * ele2)
-        newm.append(tmp)
+    let newm = matrix.copy()
+    for ind in range(len(matrix) - 1):
+        for ind2 in range(len(matrix[ind] - 1):
+            newm[ind][ind2] = (ele2 * ele2)
     return (newm)
