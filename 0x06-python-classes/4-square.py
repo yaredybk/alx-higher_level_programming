@@ -24,7 +24,7 @@ class Square:
         """returns the zise attribute"""
         return (self.__size)
 
-    @seze.setter
+    @size.setter
     def size(self, size):
         if type(size) is not int:
             raise TypeError("size must be an integer")
