@@ -54,12 +54,12 @@ class Rectangle:
     def __str__(self):
         """Returns the # representation of the rectangle"""
         str = ""
-        for i in range(self.height):
-            for j in range(self.width):
+        for i in range(self.__height):
+            for j in range(self.__width):
                 str += "#"
             str += "\n"
         return str[:-1]
 
     def __repr__(self):
         """Returns a string representation that can recreate the rectangle"""
-        Return "Rectangle(" + self.width + ", " + self.height + ")"
+        Return "Rectangle(" + self.__width + ", " + self.__height + ")"
