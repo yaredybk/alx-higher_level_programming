@@ -21,9 +21,11 @@ class Square:
         self.validate_position(position)
         self.__position = position
 
-    def validate_position(x, y):
+    @staticmethod
+    def validate_position(pos=(0,0)):
         """validates a tuple data for the posion attribute"""
-        if type(x) is not int or type(y) is not int or x < 0 or y < 0:
+        if (type(pos[0]) is not int or type(pos[1]) is not int
+                or pos[0] < 0 or pos[1] < 0):
             raise TypeError(
                     "position must be a tuple of 2 positive integers")
 
