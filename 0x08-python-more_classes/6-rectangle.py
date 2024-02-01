@@ -6,7 +6,7 @@ class Rectangle:
     """Represent a rectangle."""
 
     # counter class variable
-    __number_of_instances = 0
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
         """Initialize a new Rectangle.
@@ -17,7 +17,7 @@ class Rectangle:
         """
         self.width = width
         self.height = height
-        Rectangle.__number_of_instances += 1
+        type(self).number_of_instances += 1
 
     @property
     def width(self):
@@ -45,10 +45,6 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__height = value
 
-    def number_of_instances():
-        """returns the number of instances"""
-        return (__number_of_instances)
-
     def area(self):
         """Return the area of the Rectangle."""
         return (self.__width * self.__height)
@@ -75,4 +71,4 @@ class Rectangle:
 
     def __del__(self):
         print("Bye rectangle...")
-        Rectangle.__number_of_instances -= 1
+        Rectangle.number_of_instances -= 1
