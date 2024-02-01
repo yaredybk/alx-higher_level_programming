@@ -65,6 +65,7 @@ class Rectangle:
     def __del__(self):
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
+
     def area(self):
         """Return the area of the Rectangle."""
         return (self.__width * self.__height)
@@ -90,4 +91,4 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        return type(this)(size, size)
+        return cls(size, size)
