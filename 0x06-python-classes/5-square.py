@@ -43,4 +43,4 @@ class Square:
             for j in range(self.__size):
                 tmp_s += "#"
             tmp_s += "\n"
-        return tmp_s[:-1]
+        print(tmp_s[:-1])
