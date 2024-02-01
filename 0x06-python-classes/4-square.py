@@ -22,7 +22,7 @@ class Square:
     @property
     def size(self):
         """returns the zise attribute"""
-        return self.__seze
+        return self.__size
 
     def area(self):
         """returns the current square are"""
