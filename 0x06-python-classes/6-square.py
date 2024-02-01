@@ -58,6 +58,8 @@ class Square:
         """prints a string representation"""
         tmp_s = ""
         for i in range(self.__size):
+            for j in range(self.__position[0]):
+                tmp_s += " "
             for j in range(self.__size):
                 tmp_s += "#"
             tmp_s += "\n"
