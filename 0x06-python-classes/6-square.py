@@ -22,7 +22,7 @@ class Square:
         self.__position = position
 
     @staticmethod
-    def validate_position(pos=(0,0)):
+    def validate_position(pos=(0, 0)):
         """validates a tuple data for the posion attribute"""
         if (type(pos[0]) is not int or type(pos[1]) is not int
                 or pos[0] < 0 or pos[1] < 0):
