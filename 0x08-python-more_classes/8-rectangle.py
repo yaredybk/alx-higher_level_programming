@@ -64,7 +64,7 @@ class Rectangle:
             return rect_1
         if rect_1.area() == rect_2.area():
             return rect_2
-        
+
     def perimeter(self):
         """Return the perimeter of the Rectangle."""
         if self.__width == 0 or self.__height == 0:
