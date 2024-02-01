@@ -4,5 +4,5 @@ define a square class
 """
 
 
-def Square:
+class Square:
     pass
