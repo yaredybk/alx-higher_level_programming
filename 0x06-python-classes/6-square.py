@@ -18,7 +18,7 @@ class Square:
         if size < 0:
             raise ValueError("size must be >= 0")
         self.__size = size
-        self.validate_position()
+        self.validate_position(position)
         self.__position = position
 
     def validate_position(x, y):
@@ -45,8 +45,8 @@ class Square:
         return (self.__position)
 
     @position.setter
-    def position(self, position):
-        self.validate_position()
+    def position(self, position=(None, None)):
+        self.validate_position(position)
         self.__position = position
 
     def area(self):
