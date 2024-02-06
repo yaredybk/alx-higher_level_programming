@@ -9,4 +9,4 @@ def MyList(list):
         super().__init__(list)
 
     def print_sorted(self):
-        print(self.sort())
+        print(sorted(self))
