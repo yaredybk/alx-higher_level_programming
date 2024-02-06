@@ -5,5 +5,8 @@
 def MyList(list):
     """ list class with a print_sorted method"""
 
+    def __init__(self,list=[]):
+        super().__init__(list)
+
     def print_sorted(self):
-        print(self.sort(self))
+        print(self.sort())
