@@ -19,18 +19,69 @@ class Base:
             self.id = Base.__nb_objects
 
     @classmethod
+    def create(cls, **dictionary):
+        """ returns an instance with all attributes already set from a dict"""
+
+        new = cls(1, 1)
+        new.update(**dictionary)
+        return (new)
+
+    @classmethod
+    def create_from_list(cls, *items):
+        """ returns an instance with all attributes already set from a dict"""
+
+        new = cls(1, 1)
+        new.update(*items)
+        return (new)
+
+    @classmethod
     def save_to_file(cls, list_objs):
         """writes the JSON string representation of list_objs to a file"""
 
         try:
-            for ele in list_objs:
-                name = ele.__class__.__name__
-                print(f"name: {name}")
-                tmpstr = ele.to_json_string(ele.to_dictionary())
-                with open(f"{name}.json", "w", encoding="utf8") as file:
-                    file.write(tmpstr)
+            name = cls.__name__
+            tmpstr = [x.to_json_string(x.to_dictionary()) for x in list_objs]
+            with open(f"{name}.json", 'w', encoding="utf8") as file:
+                file.write('\n'.join(tmpstr))
         except IOError as e:
             raise IOError(f"Error writing to file: {e}")
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances from a file"""
+
+        try:
+            with open(f"{cls.__name__}.json", "r") as f:
+                return ([cls.create(**cls.from_json_string(x)) for x in f])
+        except FileNotFoundError:
+            return ([])
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """writes the JSON string representation of list_objs to a csv file"""
+
+        try:
+            name = cls.__name__
+            if name == "Rectangle":
+                tmpstr = [f"{x.id},{x.width},{x.height},{x.x},{x.y}"
+                          for x in list_objs]
+            else:
+                tmpstr = [f"{x.id},{x.size},{x.x},{x.y}"
+                          for x in list_objs]
+            with open(f"{name}.json", 'w', encoding="utf8") as file:
+                file.write('\n'.join(tmpstr))
+        except IOError as e:
+            raise IOError(f"Error writing to file: {e}")
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """returns a list of instances from a csv file"""
+
+        try:
+            with open(f"{cls.__name__}.json", "r") as f:
+                return ([cls.create_from_list(*[int(y) for y in x.split(',')]) for x in f])
+        except FileNotFoundError:
+            return ([])
 
     @staticmethod
     def to_json_string(list_dictionaries):
