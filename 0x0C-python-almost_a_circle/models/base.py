@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ “base” of all other classes in this project"""
 import json
+import turtle
 
 
 class Base:
@@ -79,7 +80,8 @@ class Base:
 
         try:
             with open(f"{cls.__name__}.json", "r") as f:
-                return ([cls.create_from_list(*[int(y) for y in x.split(',')]) for x in f])
+                return ([cls.create_from_list(*[int(y) for y in x.split(',')])
+                        for x in f])
         except FileNotFoundError:
             return ([])
 
@@ -99,3 +101,34 @@ class Base:
         if json_string is None:
             return ([])
         return (json.loads(json_string))
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ draw rectangle or/and square to a canvas """
+
+        tt = turtle.Turtle()
+        tt.screen.bgcolor(100, 100, 100)
+        tt.color((0, 0, 0), (0, 0, 200))
+        tt.mode("standard")
+        for r in list_rectangles:
+            __loop(r)
+        tt.color((0, 200, 0), (200, 0, 200))
+        for s in list_squares:
+            __loop(s)
+
+        @staticmethod
+        def __loop(r):
+            tt.penup()
+            tt.goto(x - (r.width / 2), y + (r.height / 2))
+            tt.setheading(0)
+            tt.pendown()
+            tt.begin_fill()
+            tt.forward(r.width)
+            tt.setheading(-90)
+            tt.forward(r.height)
+            tt.setheading(0)
+            tt.backward(r.width)
+            tt.setheading(90)
+            tt.forward(r.height)
+            tt.end_fill()
+            tt.penup()
