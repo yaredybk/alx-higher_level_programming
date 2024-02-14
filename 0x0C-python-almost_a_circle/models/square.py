@@ -54,10 +54,10 @@ class Square(Rectangle):
                     self[key] = val
 
     def to_dictionary(self):
-        tmp = {
-                "id": self.id,
-                "size": self.__size,
-                "x": self.x,
-                "y": self.y
-                }
-        return tmp
+        """Return the dictionary representation of the Square."""
+        return {
+            "id": self.id,
+            "size": self.width,
+            "x": self.x,
+            "y": self.y
+        }
