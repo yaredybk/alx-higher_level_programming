@@ -27,10 +27,10 @@ class Rectangle(Base):
             ValueError: If either of x or y < 0.
         """
 
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
 
     @property
@@ -102,76 +102,3 @@ class Rectangle(Base):
                 raise ValueError(f"{key} must be >= 0")
         elif val <= 0:
             raise ValueError(f"{key} must be > 0")
-
-    def _validate_set(self, val, key):
-        """
-	validates value and set an attribute
-	"""
-        self._validateattr(val, key)
-        self[key] = val
-
-    def area(self):
-        """
-	returns the area of the rectangle
-	"""
-        return (self.__width * self.__height)
-
-    def display(self):
-        """
-	prints in stdout the Rectangle instance with the character #
-	"""
-        str1 = '\n' * self.__y
-        str2 = ' ' * self.__x + '#' * self.__width
-        str1 += '\n'.join([str2 for _ in range(self.__height)])
-        print(str1)
-
-    def __str__(self):
-        """
-	returns str representation in a format like:
-        [Rectangle] (<id>) <x>/<y> - <width>/<height>
-	"""
-        return (f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - "
-                f"{self.__width}/{self.__height}")
-
-    def __setitem__(self, key, value):
-        if (key == "id"):
-            self.id = value
-        elif (key == "width"):
-            self.__width = value
-        elif (key == "height"):
-            self.__height = value
-        elif (key == 'x'):
-            self.__x = value
-        elif (key == 'y'):
-            self.__y = value
-        else:
-            raise KeyError(f"'{key}' id invalid key")
-
-    def update(self, *args, **kwargs):
-        """
-	 update/set arguments of the class.
-        if *args is provided: all at ones or any in order of
-        id, width, height, x, y
-        otherwise if **kwargs is provided set the attributes of the class
-        base on key word and value of **kwargs
-	"""
-
-        if args and len(args) > 0:
-            if len(args) > 5:
-                raise KeyError("no more than 5 keys are allowed")
-            map1 = ["id", "width", "height", 'x', 'y']
-            for i in range(len(args)):
-                self[map1[i]] = args[i]
-        else:
-            for key, val in kwargs.items():
-                self[key] = val
-
-    def to_dictionary(self):
-        tmp = {
-                "id": self.id,
-                "width": self.__width,
-                "height": self.__height,
-                "x": self.__x,
-                "y": self.__y
-                }
-        return tmp
