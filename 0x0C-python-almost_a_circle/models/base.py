@@ -51,9 +51,12 @@ class Base:
 
         try:
             name = cls.__name__
-            tmpstr = [x.to_json_string(x.to_dictionary()) for x in list_objs]
+            if list_objs is None:
+                tmp = "[]"
+            else:
+                tmp = [x.to_json_string(x.to_dictionary()) for x in list_objs]
             with open(f"{name}.json", 'w', encoding="utf8") as file:
-                file.write('[' + ','.join(tmpstr) + ']')
+                file.write('[' + ','.join(tmp) + ']')
         except IOError as e:
             raise IOError(f"Error writing to file: {e}")
 
@@ -107,7 +110,7 @@ class Base:
         returns the JSON string representation of list_dictionaries
         """
 
-        if list_dictionaries is None  or list_dictionaries == []:
+        if list_dictionaries is None or list_dictionaries == []:
             return ("[]")
         else:
             return json.dumps(list_dictionaries)
