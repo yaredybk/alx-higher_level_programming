@@ -126,11 +126,11 @@ class TestRectangle2(unittest.TestCase):
         """test for class update method using kwargs"""
 
         r2 = Rectangle(10, 10, 10, 10)
-        e1 = "[Rectangle] (1) 10/10 - 10/1"
+        e1 = f"[Rectangle] ({r2.id}) 10/10 - 10/1"
         r2.update(height=1)
         self.assertEqual(str(r2), e1)
 
-        e1 = "[Rectangle] (1) 2/10 - 1/1"
+        e1 = f"[Rectangle] ({r2.id}) 2/10 - 1/1"
         r2.update(width=1, x=2)
         self.assertEqual(str(r2), e1)
 
