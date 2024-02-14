@@ -131,3 +131,17 @@ class Rectangle(Base):
         """
         return (f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - "
                 f"{self.__width}/{self.__height}")
+
+    def __setitem__(self, key, value):
+        if (key == "id"):
+            self.id = value
+        elif (key == "width"):
+            self.__width = value
+        elif (key == "height"):
+            self.__height = value
+        elif (key == 'x'):
+            self.__x = value
+        elif (key == 'y'):
+            self.__y = value
+        else:
+            raise KeyError(f"'{key}' id invalid key")
