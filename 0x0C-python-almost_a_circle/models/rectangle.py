@@ -7,12 +7,25 @@ class Rectangle(Base):
     """rectangle class with width and height"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """inializes the rectangle class with a private checker class"""
-        super().__init__(id)
+        """inializes the rectangle class with a private checker class
+
+        Args:
+            width (int): The width of the new Rectangle.
+            height (int): The height of the new Rectangle.
+            x (int): The x coordinate of the new Rectangle.
+            y (int): The y coordinate of the new Rectangle.
+            id (int): The identity of the new Rectangle.
+        Raises:
+            TypeError: If either of width or height is not an int.
+            ValueError: If either of width or height <= 0.
+            TypeError: If either of x or y is not an int.
+            ValueError: If either of x or y < 0.
+        """
         self._validate_set(width, "width")
         self._validate_set(height, "height")
         self._validate_set(x, 'x')
         self._validate_set(y, 'y')
+        super().__init__(id)
 
     @property
     def width(self):
@@ -21,6 +34,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, width):
+        """set the width"""
         self._validate_set(width, "width")
 
     @property
@@ -30,6 +44,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, height):
+        """set height"""
         self._validate_set(height, "height")
 
     @property
@@ -39,6 +54,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, x):
+        """set attribute x"""
         self._validate_set(x, 'x')
 
     @property
@@ -48,6 +64,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, y):
+        """set attribute y"""
         self._validate_set(y, 'y')
 
     def _validateattr(self, val, key="input"):
