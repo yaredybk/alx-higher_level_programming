@@ -60,8 +60,8 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """
-	returns a list of instances from a file
-	"""
+        returns a list of instances from a file
+        """
 
         try:
             with open(f"{cls.__name__}.json", "r") as f:
@@ -72,8 +72,8 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """
-	writes the JSON string representation of list_objs to a csv file
-	"""
+        writes the JSON string representation of list_objs to a csv file
+        """
 
         try:
             name = cls.__name__
@@ -91,8 +91,8 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         """
-	returns a list of instances from a csv file
-	"""
+        returns a list of instances from a csv file
+        """
 
         try:
             with open(f"{cls.__name__}.json", "r") as f:
@@ -104,8 +104,8 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """
-	returns the JSON string representation of list_dictionaries
-	"""
+        returns the JSON string representation of list_dictionaries
+        """
 
         if list_dictionaries is None:
             return ("[]")
@@ -115,8 +115,8 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """
-	 returns the list of the JSON string representation json_string
-	"""
+         returns the list of the JSON string representation json_string
+        """
 
         if json_string is None:
             return ([])
@@ -125,8 +125,8 @@ class Base:
     @staticmethod
     def draw(list_rectangles, list_squares):
         """
-	 draw rectangle or/and square to a canvas 
-	"""
+         draw rectangle or/and square to a canvas 
+        """
 
         tt = turtle.Turtle()
         tt.screen.bgcolor(100, 100, 100)
