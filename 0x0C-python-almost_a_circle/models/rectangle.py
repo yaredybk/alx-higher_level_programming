@@ -111,14 +111,14 @@ class Rectangle(Base):
 
     def area(self):
         """
-        returns the area of the rectangle
-        """
+	returns the area of the rectangle
+	"""
         return (self.__width * self.__height)
 
     def display(self):
         """
-        prints in stdout the Rectangle instance with the character #
-        """
+	prints in stdout the Rectangle instance with the character #
+	"""
         str1 = '\n' * self.__y
         str2 = ' ' * self.__x + '#' * self.__width
         str1 += '\n'.join([str2 for _ in range(self.__height)])
@@ -126,9 +126,9 @@ class Rectangle(Base):
 
     def __str__(self):
         """
-        returns str representation in a format like:
+	returns str representation in a format like:
         [Rectangle] (<id>) <x>/<y> - <width>/<height>
-        """
+	"""
         return (f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - "
                 f"{self.__width}/{self.__height}")
 
@@ -148,12 +148,12 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """
-         update/set arguments of the class.
+	 update/set arguments of the class.
         if *args is provided: all at ones or any in order of
         id, width, height, x, y
         otherwise if **kwargs is provided set the attributes of the class
         base on key word and value of **kwargs
-        """
+	"""
 
         if args and len(args) > 0:
             if len(args) > 5:
@@ -164,13 +164,3 @@ class Rectangle(Base):
         else:
             for key, val in kwargs.items():
                 self[key] = val
-
-    def to_dictionary(self):
-        tmp = {
-                "id": self.id,
-                "width": self.__width,
-                "height": self.__height,
-                "x": self.__x,
-                "y": self.__y
-                }
-        return tmp
