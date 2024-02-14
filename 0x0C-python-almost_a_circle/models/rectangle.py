@@ -145,3 +145,32 @@ class Rectangle(Base):
             self.__y = value
         else:
             raise KeyError(f"'{key}' id invalid key")
+
+    def update(self, *args, **kwargs):
+        """
+         update/set arguments of the class.
+        if *args is provided: all at ones or any in order of
+        id, width, height, x, y
+        otherwise if **kwargs is provided set the attributes of the class
+        base on key word and value of **kwargs
+        """
+
+        if args and len(args) > 0:
+            if len(args) > 5:
+                raise KeyError("no more than 5 keys are allowed")
+            map1 = ["id", "width", "height", 'x', 'y']
+            for i in range(len(args)):
+                self[map1[i]] = args[i]
+        else:
+            for key, val in kwargs.items():
+                self[key] = val
+
+    def to_dictionary(self):
+        tmp = {
+                "id": self.id,
+                "width": self.__width,
+                "height": self.__height,
+                "x": self.__x,
+                "y": self.__y
+                }
+        return tmp
