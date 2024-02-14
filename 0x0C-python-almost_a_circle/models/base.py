@@ -125,7 +125,7 @@ class Base:
     @staticmethod
     def draw(list_rectangles, list_squares):
         """
-         draw rectangle or/and square to a canvas 
+         draw rectangle or/and square to a canvas
         """
 
         tt = turtle.Turtle()
