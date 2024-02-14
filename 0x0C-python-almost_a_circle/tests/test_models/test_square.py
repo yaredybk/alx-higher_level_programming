@@ -23,7 +23,7 @@ class TestSquare(unittest.TestCase):
 #####
 #####\n"""
 
-        self.assertEqual(str(s1),t1)
+        self.assertEqual(str(s1), t1)
         self.assertEqual(s1.area(), ta1)
 
         captured_output1 = StringIO()
@@ -38,7 +38,7 @@ class TestSquare(unittest.TestCase):
   ##\n"""
 
         s2 = Square(2, 2)
-        self.assertEqual(str(s2),t2)
+        self.assertEqual(str(s2), t2)
         self.assertEqual(s2.area(), ta2)
 
         captured_output2 = StringIO()
@@ -56,7 +56,7 @@ class TestSquare(unittest.TestCase):
  ###
  ###\n"""
         s3 = Square(3, 1, 3)
-        self.assertEqual(str(s3),t3)
+        self.assertEqual(str(s3), t3)
         self.assertEqual(s3.area(), ta3)
 
         captured_output3 = StringIO()
