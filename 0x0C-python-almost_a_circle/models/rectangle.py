@@ -26,11 +26,10 @@ class Rectangle(Base):
             TypeError: If either of x or y is not an int.
             ValueError: If either of x or y < 0.
         """
-
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        self._validate_set(width, "width")
+        self._validate_set(height, "height")
+        self._validate_set(x, 'x')
+        self._validate_set(y, 'y')
         super().__init__(id)
 
     @property
@@ -102,3 +101,10 @@ class Rectangle(Base):
                 raise ValueError(f"{key} must be >= 0")
         elif val <= 0:
             raise ValueError(f"{key} must be > 0")
+
+    def _validate_set(self, val, key):
+        """
+	validates value and set an attribute
+	"""
+        self._validateattr(val, key)
+        self[key] = val
