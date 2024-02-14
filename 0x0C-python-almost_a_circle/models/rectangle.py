@@ -108,3 +108,26 @@ class Rectangle(Base):
 	"""
         self._validateattr(val, key)
         self[key] = val
+
+    def area(self):
+        """
+        returns the area of the rectangle
+        """
+        return (self.__width * self.__height)
+
+    def display(self):
+        """
+        prints in stdout the Rectangle instance with the character #
+        """
+        str1 = '\n' * self.__y
+        str2 = ' ' * self.__x + '#' * self.__width
+        str1 += '\n'.join([str2 for _ in range(self.__height)])
+        print(str1)
+
+    def __str__(self):
+        """
+        returns str representation in a format like:
+        [Rectangle] (<id>) <x>/<y> - <width>/<height>
+        """
+        return (f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - "
+                f"{self.__width}/{self.__height}")
