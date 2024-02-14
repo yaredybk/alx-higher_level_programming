@@ -90,14 +90,16 @@ class TestRectangle_init(unittest.TestCase):
         r = Rectangle(5, 7, 7, 5, 1)
         r.y = 10
         self.assertEqual(10, r.y)
-class TestRectangle(unittest.TestCase):
-    """test Rectangl update"""
+
+
+class TestRectangle_update(unittest.TestCase):
+    """test Rectangle update"""
 
 
     def test_init(self):
         """test initialization"""
         r1 = Rectangle(10, 10, 10, 10)
-        e1 = "[Rectangle] (1) 10/10 - 10/10"
+        e1 = f"[Rectangle] ({r1.id}) 10/10 - 10/10"
         self.assertEqual(str(r1), e1)
 
     def test_upadet_via_args(self):
