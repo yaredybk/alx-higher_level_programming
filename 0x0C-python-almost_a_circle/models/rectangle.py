@@ -54,7 +54,7 @@ class Rectangle(Base):
         """validates if val is an int and above 0 and
         sets an atribute <key> to <val> otherwise raises an error"""
 
-        if not isinstance(val, int):
+        if type(val) is not int:
             raise TypeError(f"{key} must be an integer")
         elif key == 'x' or key == 'y':
             if val < 0:

@@ -158,3 +158,36 @@ class TestRectangle2(unittest.TestCase):
         ex1 ="""\n\n  ##\n  ##\n  ##\n"""
         re1 = Rectangle(2, 3, 2, 2)
         self.assertEqual(mock_stdout.getvalue(), ex1)
+
+
+class TestRectangle_width_typeerror(unittest.TestCase):
+    """unittests for validation of rectangle width"""
+
+
+    def test_None(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(None, 1)
+
+    def test_bool(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(True, 1)
+
+    def test_str(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle("abc", 1)
+
+    def test_float(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(1.1, 1)
+
+    def test_array(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle([1, 2, 3], 1)
+
+    def test_set(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle({1, 2, 3}, 1)
+
+    def test_tuple(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle((1, 2, 3), 1)
