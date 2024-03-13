@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#cat the first and pipe to the second executable
+echo $1 | ./$2
