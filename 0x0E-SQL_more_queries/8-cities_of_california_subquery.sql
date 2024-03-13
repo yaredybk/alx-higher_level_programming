@@ -2,10 +2,9 @@
 -- 
 -- The states table contains only one record where name = California (but the id can be different, as per the example)
 -- Results must be sorted in ascending order by cities.id
-USE `hbtn_0d_usa`;
-SELECT * FROM `cities`
+SELECT * FROM `hbtn_0d_usa`.`cities`
 WHERE `state_id` IN (
-	SELECT `id` FROM `states`
+	SELECT `id` FROM `hbtn_0d_usa`.`states`
 	WHERE `name` = 'California'
 )
-ORDER BY `id` ASC;
+ORDER BY `cities`.`id`;
