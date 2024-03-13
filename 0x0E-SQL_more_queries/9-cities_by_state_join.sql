@@ -2,7 +2,7 @@
 --
 -- Each record should display: cities.id - cities.name - states.name
 -- Results must be sorted in ascending order by cities.id
-SELECT c.`id` as `id`, c.`name` as `name`, s.`name` as `name`
+SELECT c.`id` AS `id`, c.`name` AS `name`, s.`name` AS `name`
 FROM `cities` c
 JOIN `states` s
 ON c.`state_id` = s.`id`
