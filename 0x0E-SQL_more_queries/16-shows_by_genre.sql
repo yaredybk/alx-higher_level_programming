@@ -5,8 +5,9 @@
 -- Results must be sorted in ascending order by the show title and genre name
 SELECT ts.title AS title, tg.name AS name
 FROM tv_show_genres tsg
-RIGHT JOIN tv_shows ts
-ON ts.id = tsg.show_id
 JOIN tv_genres tg
 ON tg.id = tsg.genre_id
+RIGHT JOIN tv_shows ts
+ON ts.id = tsg.show_id
+
 ORDER BY ts.title, tg.name;
