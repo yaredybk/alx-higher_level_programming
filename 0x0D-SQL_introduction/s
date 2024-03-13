@@ -1,0 +1,2 @@
+mysql -hlocalhost -uroot -p
+
