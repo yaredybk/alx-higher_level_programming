@@ -1,1 +1,2 @@
-#!/usr/bin/node\n
+#!/usr/bin/node
+
