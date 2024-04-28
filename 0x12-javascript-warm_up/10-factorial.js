@@ -2,7 +2,9 @@
 const { argv } = require('node:process');
 
 function factorial (x) {
-	if
+  if (x && x > 0) return (x + factorial(x - 1));
+  else return (0);
+}
 const v = Number(argv[2]);
-const w = Number(argv[3]);
-console.log(v + w);
+if (isNaN(v)) console.log(1);
+else console.log(factorial(v));
