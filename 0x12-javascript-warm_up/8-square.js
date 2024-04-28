@@ -3,7 +3,9 @@ const { argv } = require('node:process');
 
 const v = Number(argv[2]);
 if (v) {
-  let i = v, j = v, s = '';
+  let i = v;
+  let s = '';
   while (i--) s += 'X';
-  while (j--) console.log(s);
+  i = v;
+  while (i--) console.log(s);
 } else console.log('Missing size');
