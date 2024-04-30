@@ -17,7 +17,7 @@ if __name__ == '__main__':
     session = Session()
 
     tmp = session.query(State.id).filter(
-            State.name.like(f"%{argv[4]}%")).order_by(State.id)
+            State.name.like(argv[4])).order_by(State.id)
     tmp = [s[0] for s in tmp]
     if len(tmp) == 0:
         print("Not found")
