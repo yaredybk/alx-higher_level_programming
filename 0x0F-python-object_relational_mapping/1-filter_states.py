@@ -12,6 +12,6 @@ if __name__ == '__main__':
     )
     c = db.cursor()
     c.execute("SELECT `id`, `name` FROM `states` \
-            WHERE `states`.`name` REGEXP '^N' \
+            WHERE `states`.`name` LIKE 'N%' \
             ORDER BY `states`.`id`")
-    [print(state) for state in c.fetchall()]
+    [print(s) for s in c.fetchall()]
