@@ -12,6 +12,6 @@ if __name__ == '__main__':
     )
     c = db.cursor()
     query = "SELECT `id`, `name` FROM `states` WHERE `states`.`name` = '{}' \
-              ORDER BY `states`.`id`".format(argv[4])
+              ORDER BY `states`.`id` DESC".format(argv[4])
     c.execute(query)
     [print(state) for state in c.fetchall()]

@@ -13,5 +13,5 @@ if __name__ == '__main__':
     c = db.cursor()
     c.execute("SELECT `id`, `name` FROM `states` \
             WHERE `states`.`name` REGEXP '^N' \
-            ORDER BY `states`.`id`")
+            ORDER BY `states`.`id` DESC")
     [print(state) for state in c.fetchall()]
