@@ -2,6 +2,7 @@
 """
 ORM python3
 """
+import re
 import MySQLdb
 from sys import argv
 
@@ -11,10 +12,13 @@ if __name__ == '__main__':
             user=argv[1], passwd=argv[2], db=argv[3]
     )
     c = db.cursor()
-    query = "SELECT c.`id`, s.`name`, c.`name` \
+    if not re.search("^[a-zA-Z0-9_]*$", argv[4]):
+        raise ValueError("invalid input")
+    query = "SELECT c.`name` \
             FROM `cities` c \
             JOIN `states` s \
             on `c`.`state_id` = `s`.`id` \
-            ORDER BY `c`.`id`"
+            WHERE s.`name` = '{}' \
+            ORDER BY `c`.`id`".format(argv[4])
     c.execute(query)
-    [print(state) for state in c.fetchall()]
+    print(', '.join([a[0] for a in c.fetchall()]))
