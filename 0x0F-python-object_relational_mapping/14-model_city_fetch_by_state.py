@@ -17,10 +17,10 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    c = session.query(City) \
+    cc = session.query(City.id, City.name, State.name) \
         .join(State) \
         .filter(State.name.like('%a%')) \
         .order_by(City.id) \
         .all()
-    for c in c:
-        print(c)
+    for i, c, s in cc:
+        print(f"{s}: ({i}) {c}")
