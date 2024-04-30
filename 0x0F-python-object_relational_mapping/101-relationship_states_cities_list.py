@@ -11,5 +11,8 @@ if __name__ == '__main__':
             user=argv[1], passwd=argv[2], db=argv[3]
     )
     c = db.cursor()
-    c.execute("SELECT `id`, `name` FROM `states` ORDER BY `states`.`id`")
+    query = "SELECT `id`, `name` FROM `states` WHERE `states`.`name` = '{}' \
+              ORDER BY `states`.`id`".format(argv[4])
+    print(query)
+    c.execute(query)
     [print(state) for state in c.fetchall()]
