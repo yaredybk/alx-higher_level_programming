@@ -18,9 +18,9 @@ if __name__ == '__main__':
     session = Session()
 
     c = session.query(City) \
-            .join(State) \
-            .filter(State.name.like('%a%')) \
-            .order_by(City.id) \
-            .all()
+        .join(State) \
+        .filter(State.name.like('%a%')) \
+        .order_by(City.id) \
+        .all()
     for c in c:
         print(c)
