@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-#./8-model_state_fetch_first.py
-#!/usr/bin/python3
 """
 ORM python3
 """
@@ -14,4 +12,5 @@ if __name__ == '__main__':
     )
     c = db.cursor()
     c.execute("SELECT `id`, `name` FROM `states` ORDER BY `state`.`id`")
-    [print(f"({id}, '{state}'") for state in c.fetchall() if state[1][0] == "N"]
+    [print(f"({id}, '{state}'") for state in c.fetchall()
+     if state[1][0] == "N"]
