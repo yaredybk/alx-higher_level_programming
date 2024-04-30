@@ -11,7 +11,10 @@ if __name__ == '__main__':
             user=argv[1], passwd=argv[2], db=argv[3]
     )
     c = db.cursor()
-    query = "SELECT `id`, `name` FROM `states` WHERE `states`.`name` = '{}' \
-              ORDER BY `states`.`id`".format(argv[4])
+    query = "SELECT c.`id`, s.`name`, c.`name` \
+            FROM `cities` c \
+            JOIN `states` s \
+            on `c`.`state_id` = `s`.`id` \
+            ORDER BY `c`.`id`"
     c.execute(query)
     [print(state) for state in c.fetchall()]
