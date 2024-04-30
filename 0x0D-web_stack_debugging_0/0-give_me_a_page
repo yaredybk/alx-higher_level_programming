@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#run apache server
+256-0 doccer container
+echo "ServerName localhost" >> /etc/
+apache2.cnf
+service apache2 start
