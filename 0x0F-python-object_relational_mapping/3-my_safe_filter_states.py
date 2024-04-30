@@ -2,6 +2,7 @@
 """
 ORM python3
 """
+import re
 import MySQLdb
 from sys import argv
 
@@ -11,6 +12,8 @@ if __name__ == '__main__':
             user=argv[1], passwd=argv[2], db=argv[3]
     )
     c = db.cursor()
+    if not re.search("^[a-zA-Z_]*$",argv[4]):
+        raise ValueError("invalid input")
     query = "SELECT `id`, `name` FROM `states` WHERE `states`.`name` = '{}' \
               ORDER BY `states`.`id`".format(argv[4])
     c.execute(query)
