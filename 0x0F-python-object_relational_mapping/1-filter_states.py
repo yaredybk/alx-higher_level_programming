@@ -11,7 +11,7 @@ if __name__ == '__main__':
             user=argv[1], passwd=argv[2], db=argv[3]
     )
     c = db.cursor()
-    c.execute("SELECT `id`, `name` FROM `states` i\
-              WHERE `states`.`name` REGEXP '^N' \
-              ORDER BY `states`.`id`")
+    c.execute("SELECT `id`, `name` FROM `states` \
+            WHERE `states`.`name` REGEXP '^N' \
+            ORDER BY `states`.`id`")
     [print(state) for state in c.fetchall()]
