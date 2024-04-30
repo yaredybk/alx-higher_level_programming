@@ -19,8 +19,12 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
+    tmps = None
     for s, c in session.query(State, City).join(City).order_by(State.id, City.id):
-        print(s.id, s.name, c.id, c.name)
+        if (tmps != s):
+            print(f"{s.id}: {s.name}")
+        print(f"\t{c.id}: {c.name}")
+        tmps = s
 #        print("{}: {}".format(state.id, state.name))
 #        for city in state.cities:
 #            print("    {}: {}".format(city.id, city.name))
