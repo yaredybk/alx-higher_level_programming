@@ -12,7 +12,7 @@ if __name__ == '__main__':
             user=argv[1], passwd=argv[2], db=argv[3]
     )
     c = db.cursor()
-    if not re.search("^[a-zA-Z_]*$",argv[4]):
+    if not re.search("^[a-zA-Z0-9_]*$", argv[4]):
         raise ValueError("invalid input")
     query = "SELECT `id`, `name` FROM `states` WHERE `states`.`name` = '{}' \
               ORDER BY `states`.`id`".format(argv[4])
