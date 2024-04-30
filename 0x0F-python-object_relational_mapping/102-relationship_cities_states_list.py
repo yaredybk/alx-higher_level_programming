@@ -22,4 +22,4 @@ if __name__ == '__main__':
     tmps = None
     cc = session.query(City).order_by(City.id).all()
     for c in cc:
-        print(f"{c.id}: {c.state.name} -> {c.name}")
+        print(f"{c.id}: {c.name} -> {c.state.name}")
