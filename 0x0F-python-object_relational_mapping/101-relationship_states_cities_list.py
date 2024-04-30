@@ -20,11 +20,8 @@ if __name__ == '__main__':
     session = Session()
 
     tmps = None
-    for s, c in session.query(State, City).join(City).order_by(State.id, City.id):
-        if (tmps != s):
-            print(f"{s.id}: {s.name}")
-        print(f"\t{c.id}: {c.name}")
-        tmps = s
-#        print("{}: {}".format(state.id, state.name))
-#        for city in state.cities:
-#            print("    {}: {}".format(city.id, city.name))
+    ss =  session.query(State).order_by(State.id).all()
+    for row  in ss:
+        print("{}: {}".format(row.id, row.name))
+        for city in row.cities:
+            print("    {}: {}".format(city.id, city.name))
