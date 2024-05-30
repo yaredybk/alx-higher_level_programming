@@ -7,3 +7,12 @@
 // You can’t use document.querySelector to select the HTML tag
 // You must use the JQuery API
 // You script must work when imported from the <head> tag
+
+$('document').ready(function () {
+    const url = 'https://www.fourtonfish.com/hellosalut/?';
+    $('INPUT#btn_translate').click(function () {
+      $.get(url + $.param({ lang: $('INPUT#language_code').val() }), function (data) {
+        $('DIV#hello').html(data.hello);
+      });
+    });
+  });
